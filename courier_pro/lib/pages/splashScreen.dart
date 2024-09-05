@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               heightSpace,
               Text(
-                'on-demand delivery available 24x7',
+                'client',
                 style: whiteNormalTextStyle,
               ),
             ],

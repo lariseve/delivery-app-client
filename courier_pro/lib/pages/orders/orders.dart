@@ -38,7 +38,7 @@ class _OrdersState extends State<Orders> {
                 left: fixPadding * 2.0),
             color: Colors.grey[100],
             child: Text(
-              'Active orders',
+              'Commandes actives',
               style: blackSmallBoldTextStyle,
             ),
           ),
@@ -52,7 +52,7 @@ class _OrdersState extends State<Orders> {
                 left: fixPadding * 2.0),
             color: Colors.grey[100],
             child: Text(
-              'Past orders',
+              'Commandes passées',
               style: blackSmallBoldTextStyle,
             ),
           ),
@@ -196,7 +196,7 @@ class _OrdersState extends State<Orders> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Work',
+                            'Travail',
                             style: blackSmallBoldTextStyle,
                           ),
                           Text(
@@ -215,7 +215,7 @@ class _OrdersState extends State<Orders> {
           heightSpace,
           heightSpace,
           Text(
-            'Paid: \$15',
+            'Payé: \$15',
             style: primaryColorSmallTextStyle,
           ),
           heightSpace,
@@ -255,7 +255,7 @@ class _OrdersState extends State<Orders> {
                   ),
                   widthSpace,
                   Text(
-                    'Order in progress',
+                    'Commande en cours',
                     style: blackSmallBoldTextStyle,
                   ),
                 ],
@@ -280,7 +280,7 @@ class _OrdersState extends State<Orders> {
                     color: primaryColor,
                   ),
                   child: Text(
-                    'Track order',
+                    'Suivre la commande',
                     style: whiteBottonTextStyle,
                   ),
                 ),
@@ -473,7 +473,7 @@ class _OrdersState extends State<Orders> {
                   ),
                   widthSpace,
                   Text(
-                    'Completed',
+                    'Complété',
                     style: blackSmallBoldTextStyle,
                   ),
                 ],
@@ -492,7 +492,7 @@ class _OrdersState extends State<Orders> {
                     color: primaryColor,
                   ),
                   child: Text(
-                    'Reorder',
+                    'Réorganiser',
                     style: whiteBottonTextStyle,
                   ),
                 ),

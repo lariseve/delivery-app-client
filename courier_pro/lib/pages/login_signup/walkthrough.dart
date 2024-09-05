@@ -53,7 +53,7 @@ class _WalkThroughState extends State<WalkThrough> {
                   ),
                   heightSpace,
                   Text(
-                    'on-demand delivery available 24x7',
+                    'Demande de livraison 24x7',
                     style: whiteNormalTextStyle,
                   ),
                 ],
@@ -65,15 +65,15 @@ class _WalkThroughState extends State<WalkThrough> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     getItems('assets/icons/courier.png', 'Send packages',
-                        'Pick and drop items like keys, chargers and documents in the city'),
+                        'Récupérez et déposez vos pacquets dans toute la  ville'),
                     heightSpace,
                     heightSpace,
-                    getItems('assets/icons/food.png', 'Order food',
-                        'Order food from your favourite restaurant and we will deliver it'),
+                    getItems('assets/icons/food.png', 'Commandez de la nourriture',
+                        'Commandez de la nourriture dans votre restaurant préféré et nous vous la livrerons'),
                     heightSpace,
                     heightSpace,
                     getItems('assets/icons/grocery.png', 'Order grocery',
-                        'Order grocery from supermarket or grocery shop and we will deliver it'),
+                        'Commandez vos courses au supermarché ou à l\'épicerie et nous vous les livrerons'),
                   ],
                 ),
               ),
@@ -85,7 +85,7 @@ class _WalkThroughState extends State<WalkThrough> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Get started with CourierPro',
+                      'Commencer  with CourierPro',
                       style: blackLargeTextStyle,
                     ),
                     heightSpace,
@@ -96,7 +96,7 @@ class _WalkThroughState extends State<WalkThrough> {
                             context,
                             PageTransition(
                                 type: PageTransitionType.rightToLeft,
-                                child: const Login()));
+                                child:  Login()));
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -109,7 +109,7 @@ class _WalkThroughState extends State<WalkThrough> {
                           widthSpace,
                           widthSpace,
                           Text(
-                            'Enter your mobile number',
+                            'Mettez votre mail',
                             style: greySmallTextStyle,
                           ),
                         ],

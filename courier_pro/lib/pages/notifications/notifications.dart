@@ -16,18 +16,18 @@ class _NotificationsState extends State<Notifications> {
   final notificationList = [
     {
       'type': 'order',
-      'title': 'Order Placed',
+      'titre': 'Order Placed',
       'desc': 'Your order placed successfully. OrderId: OID1256789.'
     },
     {
       'type': 'offer',
-      'title': '25% Off use code CourierPro25',
+      'titre': '25% Off use code CourierPro25',
       'desc':
           'Use code CourierPro25 for your order between 20th sept to 25th sept and get 25% off.'
     },
     {
       'type': 'offer',
-      'title': 'Flat \$10 Off',
+      'titre': 'Flat \$10 Off',
       'desc': 'Use code CPro10 and get \$10 off on your order.'
     }
   ];
@@ -67,7 +67,7 @@ class _NotificationsState extends State<Notifications> {
                     height: 20.0,
                   ),
                   Text(
-                    'No Notifications',
+                    'Pas de  Notifications',
                     style: greyNormalTextStyle,
                   )
                 ],
@@ -87,7 +87,7 @@ class _NotificationsState extends State<Notifications> {
 
                     // Then show a snackbar.
                     ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text("${item['title']} dismissed")));
+                        SnackBar(content: Text("${item['titre']} dismissed")));
                   },
                   // Show a red background as the item is swiped away.
                   background: Container(color: Colors.red),
@@ -123,7 +123,7 @@ class _NotificationsState extends State<Notifications> {
                                     padding: const EdgeInsets.only(
                                         top: 8.0, right: 8.0, left: 8.0),
                                     child: Text(
-                                      '${item['title']}',
+                                      '${item['titre']}',
                                       style: blackHeadingTextStyle,
                                     ),
                                   ),

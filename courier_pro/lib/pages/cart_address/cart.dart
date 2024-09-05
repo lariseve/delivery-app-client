@@ -44,7 +44,7 @@ class _CartState extends State<Cart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Confirm Order',
+              'Confirmer la commande',
               style: appBarBlackTextStyle,
             ),
             Text(
@@ -100,7 +100,7 @@ class _CartState extends State<Cart> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Deliver to',
+                                'Livrer à',
                                 style: greySmallBoldTextStyle,
                               ),
                               const SizedBox(width: 5.0),
@@ -290,7 +290,7 @@ class _CartState extends State<Cart> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Customize',
+                                    'Personnaliser',
                                     style: greyNormalTextStyle,
                                   ),
                                   const SizedBox(width: 5.0),
@@ -402,7 +402,7 @@ class _CartState extends State<Cart> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Invoice',
+            'Facture',
             style: blackLargeTextStyle,
           ),
           heightSpace,
@@ -429,7 +429,7 @@ class _CartState extends State<Cart> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'Partner Delivery Charges',
+                'Frais de livraison des partenaires',
                 style: blackSmallBoldTextStyle,
               ),
               Row(
@@ -457,7 +457,7 @@ class _CartState extends State<Cart> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                'Offer discount',
+                'Offre de remise',
                 style: primaryColorSmallBoldTextStyle,
               ),
               Text(
@@ -495,7 +495,7 @@ class _CartState extends State<Cart> {
               border: Border.all(width: 1.0, color: primaryColor),
             ),
             child: Text(
-              'Congratulations! You\'ve saved \$1.3 on this order.',
+              'Félicitations ! Vous avez économisé 1,3 \$ sur cette commande.',
               style: primaryColorSmallBoldTextStyle,
             ),
           ),

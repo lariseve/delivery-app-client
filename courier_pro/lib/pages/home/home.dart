@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
         backgroundColor: whiteColor,
         automaticallyImplyLeading: false,
         elevation: 1.0,
-        title: Text('Welcome to Courier Pro', style: appBarTextStyle),
+        title: Text('Bienvenue a  Courier Pro', style: appBarTextStyle),
         actions: [
           IconButton(
             icon: Icon(Icons.person, color: primaryColor),
@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
                       SizedBox(
                         width: width - (fixPadding * 4.0 + 35.0 + 30.0 + 10.0),
                         child: Text(
-                            'Invite friends to Courier Pro to earn upto \$20 Courier Pro Cash',
+                            'Invitez des amis sur Courier Pro pour gagner jusqu\'à 20 \$ Courier Pro Cash',
                             style: blackSmallTextStyle),
                       ),
                     ],
@@ -108,7 +108,7 @@ class _HomeState extends State<Home> {
                       builder: (context) => const SendPackages()));
             },
             child: Hero(
-              tag: 'Send Packages',
+              tag: 'Envoyer des colis',
               child: Container(
                 margin: EdgeInsets.only(
                     top: fixPadding * 2.0,
@@ -155,7 +155,7 @@ class _HomeState extends State<Home> {
                         children: [
                           Text('Send Packages',
                               style: primaryColorHeadingTextStyle),
-                          Text('Send packages to anywhere and anytime.',
+                          Text('Envoyez des colis n\'importe où et à tout moment.',
                               style: greySmallTextStyle)
                         ],
                       ),
@@ -176,7 +176,7 @@ class _HomeState extends State<Home> {
                       builder: (context) => const GetFoodDeliver()));
             },
             child: Hero(
-              tag: 'Get Food Deliver',
+              tag: 'Faites-vous livrer de la nourriture',
               child: Container(
                 margin: EdgeInsets.only(
                     top: fixPadding * 2.0,
@@ -221,9 +221,9 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Get Food Deliver',
+                          Text('Faites-vous livrer de la nourriture',
                               style: primaryColorHeadingTextStyle),
-                          Text('Order food and we will deliver it.',
+                          Text('Commandez de la nourriture et nous vous la livrerons.',
                               style: greySmallTextStyle)
                         ],
                       ),
@@ -287,10 +287,10 @@ class _HomeState extends State<Home> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Get Grocery Deliver',
+                        Text('Faites-vous livrer vos courses',
                             style: primaryColorHeadingTextStyle),
                         Text(
-                            'Order grocery at your favourite store and we will deliver it.',
+                            'Commandez vos courses dans votre magasin préféré et nous vous les livrerons.',
                             style: greySmallTextStyle)
                       ],
                     ),

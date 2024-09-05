@@ -1,154 +1,144 @@
-// ignore_for_file: library_private_types_in_public_api
-
-import 'package:courier_pro/constant/constant.dart';
-import 'package:courier_pro/pages/login_signup/otp_screen.dart';
+import 'package:courier_pro/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:courier_pro/constant/constant.dart';
+import 'package:get/get.dart';
+import 'package:courier_pro/pages/login_signup/Signup.dart';
+import 'package:courier_pro/pages/bottom_bar.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Login extends StatelessWidget {
+  Login({super.key});
 
-  @override
-  _LoginState createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
-  Color continueButtonColor = Colors.grey[500]!;
-  String phoneNumber = '';
-  String? phoneIsoCode;
-  final TextEditingController controller = TextEditingController();
-  String initialCountry = 'IN';
-  PhoneNumber number = PhoneNumber(isoCode: 'IN');
-  void onPhoneNumberChange(
-      String number, String internationalizedPhoneNumber, String isoCode) {
-    setState(() {
-      phoneNumber = number;
-      phoneIsoCode = isoCode;
-    });
-  }
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: whiteColor,
-      appBar: AppBar(
-        backgroundColor: whiteColor,
-        elevation: 0.0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: blackColor,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
+      backgroundColor: scaffoldBgColor, // Utilisation de la couleur de fond définie
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(fixPadding),
+          child: Form(
+            key: _formKey,
             child: ListView(
+              padding: EdgeInsets.all(fixPadding),
               children: [
-                Container(
-                  padding: EdgeInsets.all(fixPadding * 2.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Enter your mobile number',
-                        style: blackLargeTextStyle,
-                      ),
-                      heightSpace,
-                      heightSpace,
-                      Text(
-                        'Create an account with your mobile number',
-                        style: greySmallTextStyle,
-                      ),
-                      const SizedBox(height: 50.0),
-                      Text(
-                        'Mobile Number',
-                        style: greySmallBoldTextStyle,
-                      ),
-                      heightSpace,
-                      InternationalPhoneNumberInput(
-                        textStyle: TextStyle(
-                          color: blackColor,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        autoValidateMode: AutovalidateMode.disabled,
-                        selectorTextStyle: TextStyle(
-                          color: blackColor,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        initialValue: number,
-                        textFieldController: controller,
-                        // inputBorder: InputBorder.none,
-                        inputDecoration: InputDecoration(
-                          contentPadding:
-                              const EdgeInsets.only(left: 20.0, bottom: 12.0),
-                          hintText: 'Mobile Number',
-                          hintStyle: TextStyle(
-                            color: greyColor,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          // border: InputBorder.none,
-                        ),
-                        selectorConfig: const SelectorConfig(
-                          selectorType: PhoneInputSelectorType.DIALOG,
-                        ),
-                        onInputChanged: (v) {
-                          if (controller.text != '') {
-                            setState(() {
-                              continueButtonColor = primaryColor;
-                            });
-                          } else {
-                            setState(() {
-                              continueButtonColor = Colors.grey[500]!;
-                            });
-                          }
-                        },
-                      ),
-                    ],
-                  ),
-                ),
+                _buildLogo(),
+                const SizedBox(height: 20),
+                _buildEmailField(),
+                _buildPasswordField(),
+                _buildForgotPasswordButton(),
+                const SizedBox(height: 16),
+                _buildSigninButton(context),
+                const SizedBox(height: 16),
+                _buildSignupLink(),
               ],
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(fixPadding * 2.0),
-            child: InkWell(
-              onTap: () {
-                if (controller.text != '') {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const OTPScreen()));
-                }
-              },
-              child: AnimatedContainer(
-                width: width - fixPadding * 2.0,
-                padding: EdgeInsets.all(fixPadding * 1.0),
-                duration: const Duration(milliseconds: 200),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30.0),
-                  color: continueButtonColor,
-                ),
-                child: Text(
-                  'Continue',
-                  style: whiteBottonTextStyle,
-                ),
-              ),
-            ),
-          ),
-        ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLogo() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Image.asset(
+        'assets/delivery_boy.png',
+        width: 200.0,
+        fit: BoxFit.fitWidth,
+      ),
+    );
+  }
+
+  Widget _buildEmailField() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: fixPadding),
+      child: TextFormField(
+        controller: emailController,
+        keyboardType: TextInputType.emailAddress,
+        decoration: _inputDecoration('Email'),
+        validator: (value) => value == null || !value.contains('@') 
+          ? 'Veuillez entrer un email valide' 
+          : null,
+      ),
+    );
+  }
+
+  Widget _buildPasswordField() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: fixPadding),
+      child: TextFormField(
+        controller: passwordController,
+        obscureText: true,
+        decoration: _inputDecoration('Mot de passe'),
+        validator: (value) => value == null || value.isEmpty 
+          ? 'Veuillez entrer votre mot de passe' 
+          : null,
+      ),
+    );
+  }
+
+  Widget _buildForgotPasswordButton() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: TextButton(
+        onPressed: () {
+          Get.snackbar('Information', 'Fonctionnalité à implémenter');
+        },
+        child: const Text(
+          'Mot de passe oublié ?',
+          style: TextStyle(color: AppColors.primaryColor),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSigninButton(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        // Naviguer directement vers la page BottomBar sans vérifier les informations d'identification
+        Get.to(() => BottomBar());
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.primaryColor,
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+      ),
+      child: const Text(
+        'Me connecter',
+        style: TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget _buildSignupLink() {
+    return GestureDetector(
+      onTap: () {
+        // Naviguer directement vers la page d'inscription
+        Get.to(() => Signup());
+      },
+      child: const Text(
+        "Pas encore de compte ? S'inscrire",
+        style: TextStyle(
+          color: AppColors.primaryColor,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  InputDecoration _inputDecoration(String hint) {
+    return InputDecoration(
+      hintText: hint,
+      fillColor: whiteColor,
+      filled: true,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16.0),
+        borderSide: BorderSide(color: AppColors.primaryColor, width: 1.5),
       ),
     );
   }
